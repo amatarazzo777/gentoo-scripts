@@ -38,5 +38,7 @@ blender
 
 The usage after burning the usb stick of the gentoo boot minimal cd is as follows. Boot from the usb :
 
-net-setup && wget github.com/amatarazzo777/gentoo-scripts/main/gentoo-1.sh && sh gentoo-1.sh
+net-setup
+wget github.com/amatarazzo777/gentoo-scripts/main/gentoo-1.sh
+sh gentoo-1.sh
 
