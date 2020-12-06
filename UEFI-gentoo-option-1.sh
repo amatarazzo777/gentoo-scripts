@@ -11,6 +11,9 @@ wget https://bouncer.gentoo.org/fetch/root/all/releases/arm64/autobuilds/2020100
 openssl dgst -r -sha512 stage3-arm64-20201004T190540Z.tar.xz
 tar xpvf stage3-*.tar.xz --attrs-include='*.*' --numeric-owner
 wget https://github.com/amatarazzo777/gentoo-scripts/new/main/make.conf
+
+exit
+
 cp make.conf /mnt/gentoo/etc/portage/make.conf
 mirrorselect -i -o >> /mnt/gentoo/etc/portage/make.conf
 mkdir --parents /mnt/gentoo/etc/portage/repos.conf
@@ -27,6 +30,23 @@ chmod 1777 /dev/shm
 chroot /mnt/gentoo /bin/bash
 source /etc/profile
 export PS1="(chroot) ${PS1}"
-
+mount /dev/sda2 /boot
+emerge-webrsync
+emerge --sync
+eselect profile list
+emerge --ask --verbose --update --deep -newuse @world
+echo "license software type --> @FREE defaulted
+portageq envvar ACCEPT_LICENSE
+echo "US/Arizona" > /etc/timezone
+emerge --config sys-libs/timezone-data
+echo 'en_US ISO-8859-1\n en_US.UTF-8 UTF-8\n' >> /etc/locale.gen
+locale-gen
+eselect local list
+eselect local set 2
+env-update && source /etc/profile && export PS1="(chroot) ${PS1}"
+emerge --ask sys-kernel/gentoo-sources
+ls -l /usr/src/linux
+cd /usr/src/linux
+make menuconfig
 
 
