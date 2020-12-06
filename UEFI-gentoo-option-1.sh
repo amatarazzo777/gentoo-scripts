@@ -1,0 +1,32 @@
+#!/bin/bash
+parted -a optimal /dev/sda mklabel gpt unit mib mkart primary 1 3 name 1 grub set 1 bios_grub on mkpart primary 3 131 name 2 boot mkpart primary 131 643 name 3 swap mkpart primary 643 -1 name 4 rootfs set 2 boot on print
+mkfs.fat -F 32 /dev/sda2
+mkfs.ext4 /dev/sda4
+mkswap /dev/sda3
+swapon /dev/sda3
+mount /dev/sda4 /mnt/gentoo
+date
+cd /mnt/gentoo
+wget https://bouncer.gentoo.org/fetch/root/all/releases/arm64/autobuilds/20201004T190540Z/stage3-arm64-20201004T190540Z.tar.xz
+openssl dgst -r -sha512 stage3-arm64-20201004T190540Z.tar.xz
+tar xpvf stage3-*.tar.xz --attrs-include='*.*' --numeric-owner
+wget https://github.com/amatarazzo777/gentoo-scripts/new/main/make.conf
+cp make.conf /mnt/gentoo/etc/portage/make.conf
+mirrorselect -i -o >> /mnt/gentoo/etc/portage/make.conf
+mkdir --parents /mnt/gentoo/etc/portage/repos.conf
+cp /mnt/gentoo/usr/share/portage/conf/repos.conf /mnt/gentoo/etc/portage/repos.conf/gentoo.conf
+cp --dereference /etc/resolv.conf /mnt/gentoo/etc/
+mount --types proc /proc /mnt/gentoo/proc
+mount --rbind /sys /mnt/gentoo/sys
+mount --make-rslave /mnt/gentoo/sys
+mount --rbind /dev /mnt/gentoo/dev
+mount --make-rslave /mnt/gentoo/dev
+test -L /dev/shm && rm /dev/shm && mkdir /dev/shm
+mount --types tmpfs --options nosuid,nodev,noexec shm /dev/shm
+chmod 1777 /dev/shm
+chroot /mnt/gentoo /bin/bash
+source /etc/profile
+export PS1="(chroot) ${PS1}"
+
+
+
