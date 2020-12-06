@@ -9,12 +9,14 @@ The gentoo linux is the system that is used on chrome books and is customizeable
 includes building the entire operating system from source code. Lengthy process, using gcc.
 The purpose is to increase performance using several methods of system specialization.
 
-Here the kernel is build with options that provide framebuff access. As well, the following components are built
+Here the kernel is build with options that provide framebuff access. 
+
+The following packages are installed after the base os.
+
+Install the gldrivers, glfw, xorg-xcb, clang, meson.
+As well, the following components are built
 after setup Skia. 
-
-The following packages are optionally available after installing the base os.
-
-Installing the gldrivers, glfw, xorg-xcb, clang, meson.
+depot tools.
 
 desktop environmnt, openbox with development setup
   eclipse, 
@@ -31,4 +33,10 @@ inkscape
 audacity
 gimp
 blender
+
+
+
+The usage after burning the usb stick of the gentoo boot minimal cd is as follows. Boot from the usb :
+
+net-setup && wget github.com/amatarazzo777/gentoo-scripts/main/gentoo-1.sh && sh gentoo-1.sh
 
