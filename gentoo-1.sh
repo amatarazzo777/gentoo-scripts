@@ -12,7 +12,7 @@ openssl dgst -r -sha512 stage3-arm64-20201004T190540Z.tar.xz
 tar xpvf stage3-*.tar.xz --attrs-include='*.*' --numeric-owner
 wget https://github.com/amatarazzo777/gentoo-scripts/new/main/make.conf
 
-exit
+exit 0
 
 cp make.conf /mnt/gentoo/etc/portage/make.conf
 mirrorselect -i -o >> /mnt/gentoo/etc/portage/make.conf
