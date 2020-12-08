@@ -1,6 +1,7 @@
 #!/bin/bash
 parted -a optimal /dev/sda mklabel gpt 
 parted -a optimal /dev/sda mkpart primary 1MiB 3MiB 
+exit 0
 parted name 1 grub 
 parted set 1 bios_grub on 
 parted -a optimal /dev/sda mkpart primary 3MiB 131MiB 
