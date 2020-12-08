@@ -13,11 +13,11 @@ parted -s -a optimal /dev/sda \
   name 4 rootfs  \
   set 2 boot on
 
-mkfs.fat -F 32 /dev/sda2
-mkfs.ext4 -F /dev/sda4
+mkfs.fat -F -F 32 /dev/sda2
+mkfs.ext4 -F -F /dev/sda4
 mkswap /dev/sda3
 swapon /dev/sda3
-parted print
+parted -s /dev/sda print
 
 mount /dev/sda4 /mnt/gentoo
 date
