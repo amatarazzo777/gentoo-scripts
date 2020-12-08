@@ -8,7 +8,7 @@ parted -s -a optimal /dev/sda \
   mkpart primary 3MB 131MB \
   name 2 boot \
   mkpart primary 131MB 643MB \
-  name 3 swap \ 
+  name 3 swap \
   mkpart primary 643 1000GB \
   name 4 rootfs  \
   set 2 boot on  \
