@@ -13,7 +13,7 @@ parted -s -a optimal /dev/sda \
   name 4 rootfs  \
   set 2 boot on
 
-mkfs.fat -F -F 32 /dev/sda2
+mkfs.fat -F 32 /dev/sda2
 mkfs.ext4 -F -F /dev/sda4
 mkswap /dev/sda3
 swapon /dev/sda3
