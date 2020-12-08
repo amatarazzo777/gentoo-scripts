@@ -7,7 +7,7 @@ parted -a optimal /dev/sda mkpart primary 3MB 131MB
 parted /dev/sda name 2 boot 
 parted -a optimal /dev/sda mkpart primary 131MB 643MB 
 parted /dev/sda name 3 swap 
-parted -a optimal /dev/sda mkpart primary 643MB --1
+parted -a optimal /dev/sda mkpart primary 643MB 1000MB
 parted /dev/sda name 4 rootfs 
 parted /dev/sda set 2 boot on 
 parted /dev/sda print
