@@ -1,6 +1,7 @@
 #!/bin/bash
 parted -a optimal /dev/sda \
   mklabel gpt \
+  unit mib \
   mkpart primary 1 3 \
   name 1 grub \
   set 1 bios_grub on \
@@ -8,7 +9,7 @@ parted -a optimal /dev/sda \
   name 2 boot \
   mkpart primary 131MB 643MB \
   name 3 swap \ 
-  mkpart primary 643 1000 \
+  mkpart primary 643 1000GB \
   name 4 rootfs  \
   set 2 boot on  \
   print
