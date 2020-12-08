@@ -25,7 +25,7 @@ cd /mnt/gentoo
 wget https://bouncer.gentoo.org/fetch/root/all/releases/arm64/autobuilds/20201004T190540Z/stage3-arm64-20201004T190540Z.tar.xz
 openssl dgst -r -sha512 stage3-arm64-20201004T190540Z.tar.xz
 tar xpvf stage3-*.tar.xz --xattrs-include='*.*' --numeric-owner
-wget https://github.com/amatarazzo777/gentoo-scripts/new/main/make.conf
+wget https://raw.githubusercontent.com/amatarazzo777/gentoo-scripts/main/make.conf
 
 exit 0
 
