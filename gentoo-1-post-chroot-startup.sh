@@ -14,7 +14,7 @@ emerge --ask --verbose --update --deep -newuse @world
 
 #accepts the free software license versitiliy for different types 
 #of commercialization using the gentoo
-echo "license software type --> @FREE defaulted
+echo "license software type --> @FREE defaulted"
 portageq envvar ACCEPT_LICENSE
 
 #time zone and locale generation, The system seems to have one that is not 
@@ -29,7 +29,9 @@ locale-gen
 #select the os profile for gentoo
 eselect local list
 eselect local set 2
-env-update && source /etc/profile && export PS1="(chroot) ${PS1}"
+env-update
+source /etc/profile
+export PS1="(chroot) ${PS1}"
 
 # download the kernel sources and configure
 emerge --ask sys-kernel/gentoo-sources
