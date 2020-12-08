@@ -15,14 +15,13 @@ mkfs.fat -F 32 /dev/sda2
 mkfs.ext4 /dev/sda4
 mkswap /dev/sda3
 swapon /dev/sda3
-exit 0
 
 mount /dev/sda4 /mnt/gentoo
 date
 cd /mnt/gentoo
 wget https://bouncer.gentoo.org/fetch/root/all/releases/arm64/autobuilds/20201004T190540Z/stage3-arm64-20201004T190540Z.tar.xz
 openssl dgst -r -sha512 stage3-arm64-20201004T190540Z.tar.xz
-tar xpvf stage3-*.tar.xz --attrs-include='*.*' --numeric-owner
+tar xpvf stage3-*.tar.xz --xattrs-include='*.*' --numeric-owner
 wget https://github.com/amatarazzo777/gentoo-scripts/new/main/make.conf
 
 exit 0
