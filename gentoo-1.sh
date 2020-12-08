@@ -33,6 +33,7 @@ tar xpvf stage3-*.tar.xz --xattrs-include='*.*' --numeric-owner
 #download configuration make files, post chroot startup and kernel build settings
 wget https://raw.githubusercontent.com/amatarazzo777/gentoo-scripts/main/make.conf
 wget https://raw.githubusercontent.com/amatarazzo777/gentoo-scripts/main/gentoo-1-post-chroot-startup.sh
+wget https://raw.githubusercontent.com/amatarazzo777/gentoo-scripts/main/locale.gen
 
 # place settings into appropiate positions within the build tree
 cp make.conf /mnt/gentoo/etc/portage/make.conf
