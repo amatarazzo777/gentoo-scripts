@@ -17,7 +17,7 @@ mkfs.fat -F 32 /dev/sda2
 mkfs.ext4 -F -F /dev/sda4
 mkswap /dev/sda3
 swapon /dev/sda3
-parted -s /dev/sda print
+parted -s /dev/sda unit mib print
 
 mount /dev/sda4 /mnt/gentoo
 date
