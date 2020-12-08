@@ -30,7 +30,7 @@ wget https://raw.githubusercontent.com/amatarazzo777/gentoo-scripts/main/make.co
 cp make.conf /mnt/gentoo/etc/portage/make.conf
 mirrorselect -i -o >> /mnt/gentoo/etc/portage/make.conf
 mkdir --parents /mnt/gentoo/etc/portage/repos.conf
-cp /mnt/gentoo/usr/share/portage/conf/repos.conf /mnt/gentoo/etc/portage/repos.conf/gentoo.conf
+cp /mnt/gentoo/usr/share/portage/config/repos.conf /mnt/gentoo/etc/portage/repos.conf/gentoo.conf
 cp --dereference /etc/resolv.conf /mnt/gentoo/etc/
 mount --types proc /proc /mnt/gentoo/proc
 mount --rbind /sys /mnt/gentoo/sys
