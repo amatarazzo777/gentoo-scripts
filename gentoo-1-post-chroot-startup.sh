@@ -23,12 +23,12 @@ portageq envvar ACCEPT_LICENSE
 # systems, - unknown
 echo "US/Arizona" > /etc/timezone
 emerge --config sys-libs/timezone-data
-echo 'en_US ISO-8859-1\n en_US.UTF-8 UTF-8\n' >> /etc/locale.gen
+cp locale.gen /etc/locale.gen
 locale-gen
 
 #select the os profile for gentoo
-eselect local list
-eselect local set 2
+eselect locale list
+eselect locale set en_US.utf8
 env-update
 source /etc/profile
 export PS1="(chroot) ${PS1}"
