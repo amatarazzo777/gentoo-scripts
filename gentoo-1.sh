@@ -15,7 +15,7 @@ parted -s -a optimal /dev/sda \
   print
 
 mkfs.fat -F 32 /dev/sda2
-mkfs.ext4 /dev/sda4
+mkfs.ext4 -F /dev/sda4
 mkswap /dev/sda3
 swapon /dev/sda3
 
