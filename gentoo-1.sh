@@ -1,13 +1,13 @@
 #!/bin/bash
 parted -a optimal /dev/sda mklabel gpt 
-parted unit mib mkpart primary 1MiB 3MiB 
+parted mkpart primary 1MiB 3MiB 
 parted name 1 grub 
 parted set 1 bios_grub on 
-parted unit mib mkpart primary 3MiB 131MiB 
+parted mkpart primary 3MiB 131MiB 
 parted name 2 boot 
-parted unit mib mkpart primary 131MiB 643MiB 
+parted mkpart primary 131MiB 643MiB 
 parted name 3 swap 
-parted unit mib mkpart primary 643MiB --1
+parted mkpart primary 643MiB --1
 parted name 4 rootfs 
 parted set 2 boot on 
 parted print
@@ -15,6 +15,8 @@ mkfs.fat -F 32 /dev/sda2
 mkfs.ext4 /dev/sda4
 mkswap /dev/sda3
 swapon /dev/sda3
+exit 0
+
 mount /dev/sda4 /mnt/gentoo
 date
 cd /mnt/gentoo
