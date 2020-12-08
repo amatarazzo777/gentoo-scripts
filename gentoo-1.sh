@@ -7,7 +7,7 @@ parted unit mib mkpart primary 3 131
 parted name 2 boot 
 parted unit mib mkpart primary 131 643 
 parted name 3 swap 
-parted unit mib mkpart primary 643 -1 
+parted unit mib mkpart primary 643 --1 
 parted name 4 rootfs 
 parted set 2 boot on 
 parted print
