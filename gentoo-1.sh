@@ -42,7 +42,7 @@ test -L /dev/shm && rm /dev/shm && mkdir /dev/shm
 mount --types tmpfs --options nosuid,nodev,noexec shm /dev/shm
 chmod 1777 /dev/shm
 chroot /mnt/gentoo /bin/bash
-exit 0
+
 source /etc/profile
 export PS1="(chroot) ${PS1}"
 mount /dev/sda2 /boot
