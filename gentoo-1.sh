@@ -2,16 +2,16 @@
 parted -a optimal /dev/sda mklabel gpt 
 parted -a optimal /dev/sda mkpart primary 1MiB 3MiB 
 exit 0
-parted name 1 grub 
-parted set 1 bios_grub on 
+parted /dev/sda name 1 grub 
+parted /dev/sda set 1 bios_grub on 
 parted -a optimal /dev/sda mkpart primary 3MiB 131MiB 
-parted name 2 boot 
+parted /dev/sda name 2 boot 
 parted -a optimal /dev/sda mkpart primary 131MiB 643MiB 
-parted name 3 swap 
+parted /dev/sda name 3 swap 
 parted -a optimal /dev/sda mkpart primary 643MiB --1
-parted name 4 rootfs 
-parted set 2 boot on 
-parted print
+parted /dev/sda name 4 rootfs 
+parted /dev/sda set 2 boot on 
+parted /dev/sda print
 mkfs.fat -F 32 /dev/sda2
 mkfs.ext4 /dev/sda4
 mkswap /dev/sda3
