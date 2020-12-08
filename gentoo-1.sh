@@ -1,13 +1,13 @@
 #!/bin/bash
 parted -a optimal /dev/sda mklabel gpt 
-parted unit mib mkpart primary 1 3 
+parted unit mib mkpart primary 1MiB 3MiB 
 parted name 1 grub 
 parted set 1 bios_grub on 
-parted unit mib mkpart primary 3 131 
+parted unit mib mkpart primary 3MiB 131MiB 
 parted name 2 boot 
-parted unit mib mkpart primary 131 643 
+parted unit mib mkpart primary 131MiB 643MiB 
 parted name 3 swap 
-parted unit mib mkpart primary 643 --1 
+parted unit mib mkpart primary 643MiB --1
 parted name 4 rootfs 
 parted set 2 boot on 
 parted print
