@@ -1,5 +1,5 @@
 #!/bin/bash
-parted --s a optimal /dev/sda \
+parted -s a optimal /dev/sda \
   mklabel gpt \
   unit mib \
   mkpart primary 1 3 \
