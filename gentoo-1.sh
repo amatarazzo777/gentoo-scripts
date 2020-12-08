@@ -31,13 +31,17 @@ openssl dgst -r -sha512 sstage3-amd64-20201206T214503Z.tar.xz
 tar xpvf stage3-*.tar.xz --xattrs-include='*.*' --numeric-owner
 
 #download configuration make files, post chroot startup and kernel build settings
-wget https://raw.githubusercontent.com/amatarazzo777/gentoo-scripts/main/make.conf
 wget https://raw.githubusercontent.com/amatarazzo777/gentoo-scripts/main/gentoo-1-post-chroot-startup.sh
 wget https://raw.githubusercontent.com/amatarazzo777/gentoo-scripts/main/locale.gen
 
 # place settings into appropiate positions within the build tree
-cp make.conf /mnt/gentoo/etc/portage/make.conf
-mirrorselect -i -o >> /mnt/gentoo/etc/portage/make.conf
+sed -i 's/COMMON_FLAGS="/COMMON_FLAGS="--march=native' /mnt/gentoo/etc/portage/make.conf
+echo "MAKEOPTS=\"-j4\"" > /mnt/gentoo/etc/portage/make.conf
+
+echo "GENTOO_MIRRORS=\"http://gentoo.cs.utah.edu\""
+#mirror is set to utah.edu so skips ui selection of fast mirrors
+# mirrorselect -i -o >> /mnt/gentoo/etc/portage/make.conf
+
 mkdir --parents /mnt/gentoo/etc/portage/repos.conf
 cp /mnt/gentoo/usr/share/portage/config/repos.conf /mnt/gentoo/etc/portage/repos.conf/gentoo.conf
 cp --dereference /etc/resolv.conf /mnt/gentoo/etc/
