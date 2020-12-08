@@ -11,13 +11,13 @@ parted -s -a optimal /dev/sda \
   name 3 swap \
   mkpart primary 643 1000GB \
   name 4 rootfs  \
-  set 2 boot on  \
-  print
+  set 2 boot on
 
 mkfs.fat -F 32 /dev/sda2
 mkfs.ext4 -F /dev/sda4
 mkswap /dev/sda3
 swapon /dev/sda3
+parted print
 
 mount /dev/sda4 /mnt/gentoo
 date
