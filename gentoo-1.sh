@@ -1,14 +1,13 @@
 #!/bin/bash
 parted -a optimal /dev/sda mklabel gpt 
-parted -a optimal /dev/sda mkpart primary 1MiB 3MiB 
-exit 0
+parted -a optimal /dev/sda mkpart primary 1MB 3MB 
 parted /dev/sda name 1 grub 
 parted /dev/sda set 1 bios_grub on 
-parted -a optimal /dev/sda mkpart primary 3MiB 131MiB 
+parted -a optimal /dev/sda mkpart primary 3MB 131MB 
 parted /dev/sda name 2 boot 
-parted -a optimal /dev/sda mkpart primary 131MiB 643MiB 
+parted -a optimal /dev/sda mkpart primary 131MB 643MB 
 parted /dev/sda name 3 swap 
-parted -a optimal /dev/sda mkpart primary 643MiB --1
+parted -a optimal /dev/sda mkpart primary 643MB --1
 parted /dev/sda name 4 rootfs 
 parted /dev/sda set 2 boot on 
 parted /dev/sda print
