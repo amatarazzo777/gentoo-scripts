@@ -32,7 +32,7 @@ tar xpvf stage3-*.tar.xz --xattrs-include='*.*' --numeric-owner
 
 #download configuration make files, post chroot startup and kernel build settings
 wget https://raw.githubusercontent.com/amatarazzo777/gentoo-scripts/main/make.conf
-wget https://raw.githubusercontent.com/amatarazzo777/gentoo-scripts/main/make.conf
+wget https://raw.githubusercontent.com/amatarazzo777/gentoo-scripts/main/gentoo-1-post-chroot-startup.sh
 
 # place settings into appropiate positions within the build tree
 cp make.conf /mnt/gentoo/etc/portage/make.conf
@@ -54,4 +54,4 @@ mount --types tmpfs --options nosuid,nodev,noexec shm /dev/shm
 chmod 1777 /dev/shm
 
 #kick off next part of building and kernel selections
-chroot /mnt/gentoo /bin/bash
+chroot /mnt/gentoo /bin/bash -c "sh gentoo-1-post-chroot-startup.sh"
