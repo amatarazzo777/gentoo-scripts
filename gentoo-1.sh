@@ -22,8 +22,8 @@ parted -s /dev/sda unit mib print
 mount /dev/sda4 /mnt/gentoo
 date
 cd /mnt/gentoo
-wget https://bouncer.gentoo.org/fetch/root/all/releases/arm64/autobuilds/20201004T190540Z/stage3-arm64-20201004T190540Z.tar.xz
-openssl dgst -r -sha512 stage3-arm64-20201004T190540Z.tar.xz
+wget https://bouncer.gentoo.org/fetch/root/all/releases/amd64/autobuilds/20201206T214503Z/stage3-amd64-20201206T214503Z.tar.xz
+openssl dgst -r -sha512 sstage3-amd64-20201206T214503Z.tar.xz
 tar xpvf stage3-*.tar.xz --xattrs-include='*.*' --numeric-owner
 wget https://raw.githubusercontent.com/amatarazzo777/gentoo-scripts/main/make.conf
 
