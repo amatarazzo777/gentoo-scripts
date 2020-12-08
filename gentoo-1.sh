@@ -1,5 +1,16 @@
 #!/bin/bash
-parted -a optimal /dev/sda mklabel gpt unit mib mkart primary 1 3 name 1 grub set 1 bios_grub on mkpart primary 3 131 name 2 boot mkpart primary 131 643 name 3 swap mkpart primary 643 -1 name 4 rootfs set 2 boot on print
+parted -a optimal /dev/sda mklabel gpt 
+parted unit mib mkpart primary 1 3 
+parted name 1 grub 
+parted set 1 bios_grub on 
+parted unit mib mkpart primary 3 131 
+parted name 2 boot 
+parted unit mib mkpart primary 131 643 
+parted name 3 swap 
+parted unit mib mkpart primary 643 -1 
+parted name 4 rootfs 
+parted set 2 boot on 
+parted print
 mkfs.fat -F 32 /dev/sda2
 mkfs.ext4 /dev/sda4
 mkswap /dev/sda3
