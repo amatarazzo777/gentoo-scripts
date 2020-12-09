@@ -67,7 +67,7 @@ chroot /mnt/gentoo /bin/bash -c "sh gentoo-1-post-chroot-startup.sh"
 umount -R /mnt/gentoo
 
 echo "======================finshed"
-echo "Before rebooting use 'passwd' command to set the root password. 
-  Then issue a 'reboot' command. And remove the USB stick."
+echo "
+  Now you may us the 'reboot' command. And remove the USB stick."
 echo "and after rebooting, add your user account using the 
-'useradd -m -G users,wheel,audio -s /bin/bash larry' command."
+'useradd -m -G users,wheel,audio -s /bin/bash larry' command. You will log in as root."
