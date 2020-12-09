@@ -1,4 +1,22 @@
 #!/bin/sh
+clear
+echo "==============================[kernel config]===="
+echo "After selecting so many options, you can save it by emailing it to yourself."
+echo "Then the next time you build gentoo, you can incorporate the settings by "
+echo "pasteing into the kernel_config file. These settings will be persistent when "
+echo "the gentoo-1.sh script is ran if you change that file."
+echo "Also note that in order for curl commands to work with the gmail system,"
+echo "you must go into your google account settings->security and turn on "\"less secure apps access\""
+read -p "Enter email to send kernel_config to: " kernel_email
+read -p "Enter the password for email: " password_email
+
+echo "------------------wireless network ssid and password initial--------------"
+ifconfig
+
+read -p "Enter the name of wireless network interface: " iface
+read -p "Enter the default network SSID: " ssid
+read -p "Enter the password for it: " password_ssid
+
 
 # the environment has changed to chroot user to compile
 # the sources from various sources on the internet. This includes
@@ -41,6 +59,15 @@ cd /usr/src/linux
 
 make menuconfig
 
+cp .config kernel_config
+
+curl --ssl-reqd \
+  --url 'smtps://smtp.gmail.com:465' \
+  --user '${kernel_email}:${password_email}' \
+  --mail-from '${kernel_email}' \
+  --mail-rcpt '${kernel_email}' \
+  --upload-file kernel_config
+  
 #the make menuconfig ishere to allow lasr minute editing befoer building. 
 # the kernel_config file is downloaded from repository
 #that is the settings were previously set with the options I like and saved to the internet
@@ -60,17 +87,8 @@ sed -i 's/HOSTNAME="livecd"/HOSTNAME="lenovo"/g' /etc/conf.d/hostname
 
 echo 'dns_domain_lo=\"cppuxnetwork\"' > /etc/conf.d/net
 
-#add networking to the install
+#add networking wireless wpa to the install
 emerge --noreplace net-misc/netifrc
-
-echo 'modules="wpa_supplicant"' > /etc/conf.d/net 
-echo 'config_eth0="dhcp"' > /etc/conf.d/net 
-
-
-#setup networking to start at login
-cd /etc/init.d
-ln -s net.lo net.wlp2s0
-rc-update add net.wlp2s0 default
 
 emerge app-admin/sysklogd
 rc-update add sysklogd default
@@ -79,33 +97,29 @@ emerge net-misc/dhcpcd
 emerge net-wireless/iw 
 emerge net-wireless/wpa_supplicant
 
-ctrl_interface=/var/run/wpa_supplicant
-  
+#setup network to login to when starting
+
+
+echo 'modules_${iface}="wpa_supplicant"' > /etc/conf.d/net
+echo 'wpa_supplicant_${iface}="-Dnl80211,wext"' > /etc/conf.d/net 
+
+echo 'config_${iface}="dhcp"' > /etc/conf.d/net 
+
+#setup networking to start at login
+cd /etc/init.d
+ln -s net.lo net.${iface}
+rc-update add net.${iface} default
 mkdir /etc/wpa_supplicant
 
-read -p "Enter the default network SSID: " ssid
-read -p "Enter the password for it: " password_ssid
+wpa_passphrase "${ssid}" "${password_sid}" > /etc/wpa_supplicant/wpa_supplicant.conf
+wpa_supplicant -B -i${iface} -c /etc/wpa_supplicant/wpa_supplicant.conf -Dnl80211,wext
 
-echo '
-# Ensure that only root can read the WPA configuration
-ctrl_interface_group=0
-  
-# Let wpa_supplicant take care of scanning and AP selection
-ap_scan=1
-  
-# Simple case: WPA-PSK, PSK as an ASCII passphrase, allow all valid ciphers
-network={
-  ssid="${ssid}"
-  psk="${ssid_password"
-  # The higher the priority the sooner we are matched
-  priority=5
-}' > /etc/wpa_supplicant/wpa_supplicant.conf
-
-echo 'Not enter the root pass for the system. You must remember this password.'
+#root password set--
+echo "======================================[SYSTEM ROOT PASSWORD]============"
+echo 'Enter the root pass for the system. You must remember this password.'
 passwd
 
-
-
+#setup boot foe efi using grub
 echo 'GRUB_PLATFORMS="efi-64"' >> /etc/portage/make.conf
 emerge sys-boot/grub:2
 grub-install --target=x86_64-efi --efi-directory=/boot
