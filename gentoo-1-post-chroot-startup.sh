@@ -99,7 +99,7 @@ network={
   priority=5
 }' > /etc/wpa_supplicant/wpa_supplicant.conf
 
-echo 'Not enter the root pass for the system'
+echo 'Not enter the root pass for the system. You must remember this password.'
 passwd
 
 
