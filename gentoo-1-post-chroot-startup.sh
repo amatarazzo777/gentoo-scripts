@@ -28,7 +28,7 @@ locale-gen
 
 #select the os profile for gentoo
 eselect locale list
-eselect locale set en_US.utf8
+eselect locale set en_US.UTF8
 env-update
 source /etc/profile
 export PS1="(chroot) ${PS1}"
