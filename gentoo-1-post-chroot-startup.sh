@@ -61,7 +61,7 @@ echo "dns_domain_lo=\"cppuxnetwork\" > /etc/conf.d/net
 #add networking to the install
 emerge --ask --noreplace net-misc/netifrc
 
-echo "config_eth0=\"dhcp\"" >  /etc/conf.d/net 
+echo 'config_eth0="dhcp"' > /etc/conf.d/net 
 
 #setup networking to start at login
 cd /etc/init.d
@@ -78,7 +78,5 @@ echo 'GRUB_PLATFORMS="efi-64"' >> /etc/portage/make.conf
 emerge --ask sys-boot/grub:2
 grub-install --target=x86_64-efi --efi-directory=/boot
 grub-mkconfig -o /boot/grub/grub.cfg
-
-exit
 
 echo "Before rebooting use 'passwd' command to set the root password."
