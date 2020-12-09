@@ -1,1 +1,68 @@
 
+Module                  Size  Used by
+fan                    16384  0
+thermal                20480  0
+hid_multitouch         24576  0
+snd_hda_codec_hdmi     49152  0
+ath10k_pci             40960  0
+ath10k_core           319488  1 ath10k_pci
+snd_hda_codec_realtek    98304  1
+rtsx_pci_sdmmc         20480  0
+snd_hda_codec_generic    61440  1 snd_hda_codec_realtek
+ath                    32768  1 ath10k_core
+mmc_core              114688  1 rtsx_pci_sdmmc
+ledtrig_audio          16384  2 snd_hda_codec_generic,snd_hda_codec_realtek
+x86_pkg_temp_thermal    16384  0
+mac80211              659456  1 ath10k_core
+i2c_designware_platform    16384  0
+i2c_designware_core    20480  1 i2c_designware_platform
+snd_hda_intel          32768  0
+snd_intel_nhlt         16384  1 snd_hda_intel
+wmi_bmof               16384  0
+intel_wmi_thunderbolt    16384  0
+snd_hda_codec          94208  4 snd_hda_codec_generic,snd_hda_codec_hdmi,snd_hda_intel,snd_hda_codec_realtek
+cfg80211              581632  3 ath,mac80211,ath10k_core
+kvm                   561152  0
+snd_hda_core           61440  5 snd_hda_codec_generic,snd_hda_codec_hdmi,snd_hda_intel,snd_hda_codec,snd_hda_codec_realtek
+snd_pcm                81920  4 snd_hda_codec_hdmi,snd_hda_intel,snd_hda_codec,snd_hda_core
+snd_timer              32768  1 snd_pcm
+irqbypass              16384  1 kvm
+snd                    73728  6 snd_hda_codec_generic,snd_hda_codec_hdmi,snd_hda_intel,snd_hda_codec,snd_timer,snd_pcm
+crct10dif_pclmul       16384  1
+efivars                16384  0
+i2c_i801               24576  0
+hwmon                  24576  1 ath10k_core
+soundcore              16384  1 snd
+libarc4                16384  1 mac80211
+rtsx_pci               49152  1 rtsx_pci_sdmmc
+intel_lpss_pci         20480  0
+intel_lpss             16384  1 intel_lpss_pci
+mfd_core               16384  2 rtsx_pci,intel_lpss
+i2c_hid                28672  0
+i2c_core               53248  4 i2c_designware_platform,i2c_hid,i2c_designware_core,i2c_i801
+ideapad_laptop         20480  0
+wmi                    24576  3 intel_wmi_thunderbolt,wmi_bmof,ideapad_laptop
+sparse_keymap          16384  1 ideapad_laptop
+rfkill                 24576  2 ideapad_laptop,cfg80211
+battery                20480  0
+ac                     16384  0
+video                  40960  1 ideapad_laptop
+backlight              16384  2 video,ideapad_laptop
+pinctrl_cannonlake     36864  0
+pinctrl_intel          20480  1 pinctrl_cannonlake
+button                 16384  0
+acpi_pad               16384  0
+efivarfs               16384  1
+usb_storage            57344  1
+crc32c_intel           24576  0
+ahci                   40960  0
+xhci_pci               16384  0
+aesni_intel           368640  0
+libahci                28672  1 ahci
+crypto_simd            16384  1 aesni_intel
+cryptd                 16384  1 crypto_simd
+xhci_hcd              180224  1 xhci_pci
+glue_helper            16384  1 aesni_intel
+libata                196608  2 libahci,ahci
+
+
