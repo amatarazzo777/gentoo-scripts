@@ -27,8 +27,9 @@ export PS1="(chroot) ${PS1}"
 mount /dev/sda2 /boot
 emerge-webrsync
 emerge --sync
+eselect profile set /default/linux/amd64/17.1/hardened (stable)
 eselect profile list
-emerge --verbose --update --deep -newuse @world
+emerge --verbose --update --deep --newuse @world
 
 #accepts the free software license versitiliy for different types 
 #of commercialization using the gentoo
