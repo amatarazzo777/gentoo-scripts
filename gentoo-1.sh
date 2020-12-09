@@ -63,3 +63,8 @@ chmod 1777 /dev/shm
 
 #kick off next part of building and kernel selections
 chroot /mnt/gentoo /bin/bash -c "sh gentoo-1-post-chroot-startup.sh"
+
+umount -R /mnt/gentoo
+
+echo "Before rebooting use 'passwd' command to set the root password. 
+  Then issue a 'reboot' command. And remove the USB stick."
