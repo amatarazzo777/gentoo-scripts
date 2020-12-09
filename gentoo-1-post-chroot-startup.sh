@@ -28,7 +28,7 @@ mount /dev/sda2 /boot
 emerge-webrsync
 emerge --sync
 eselect profile list
-emerge --ask --verbose --update --deep -newuse @world
+emerge --verbose --update --deep -newuse @world
 
 #accepts the free software license versitiliy for different types 
 #of commercialization using the gentoo
