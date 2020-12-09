@@ -6,7 +6,7 @@ echo "Then the next time you build gentoo, you can incorporate the settings by "
 echo "pasteing into the kernel_config file. These settings will be persistent when "
 echo "the gentoo-1.sh script is ran if you change that file."
 echo "Also note that in order for curl commands to work with the gmail system,"
-echo "you must go into your google account settings->security and turn on "\"less secure apps access\""
+echo "you must go into your google account settings->security and turn on \"less secure apps access\""
 read -p "Enter email to send kernel_config to: " kernel_email
 read -p "Enter the password for email: " password_email
 
