@@ -32,7 +32,7 @@ tar xpvf stage3-*.tar.xz --xattrs-include='*.*' --numeric-owner
 
 #download configuration make files, post chroot startup and kernel build settings
 wget https://raw.githubusercontent.com/amatarazzo777/gentoo-scripts/main/gentoo-1-post-chroot-startup.sh
-wget https://raw.githubusercontent.com/amatarazzo777/gentoo-scripts/main/locale.gen
+wget https://raw.githubusercontent.com/amatarazzo777/gentoo-scripts/main/kernel_config
 
 # place settings into appropiate positions within the build tree
 sed -i 's/COMMON_FLAGS="/COMMON_FLAGS="--march=native' /mnt/gentoo/etc/portage/make.conf
@@ -45,6 +45,9 @@ echo "GENTOO_MIRRORS=\"http://gentoo.cs.utah.edu\""
 mkdir --parents /mnt/gentoo/etc/portage/repos.conf
 cp /mnt/gentoo/usr/share/portage/config/repos.conf /mnt/gentoo/etc/portage/repos.conf/gentoo.conf
 cp --dereference /etc/resolv.conf /mnt/gentoo/etc/
+
+#kernel profile compilation flags
+cp kernel_config /mnt/gentoo/usr/src/linux/.config
 
 #mount system folders
 mount --types proc /proc /mnt/gentoo/proc
