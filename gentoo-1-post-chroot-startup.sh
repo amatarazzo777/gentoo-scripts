@@ -10,14 +10,6 @@ echo "you must go into your google account settings->security and turn on \"less
 read -p "Enter email to send kernel_config to: " kernel_email
 read -p "Enter the password for email: " password_email
 
-echo "------------------wireless network ssid and password initial--------------"
-ifconfig
-
-read -p "Enter the name of wireless network interface: " iface
-read -p "Enter the default network SSID: " ssid
-read -p "Enter the password for it: " password_ssid
-
-
 # the environment has changed to chroot user to compile
 # the sources from various sources on the internet. This includes
 # the emerge gentoo libraries and the modified platform specific kernel
@@ -59,7 +51,7 @@ cd /usr/src/linux
 
 make menuconfig
 
-cp .config kernel_config
+cp /usr/src/linux/.config kernel_config
 
 curl --ssl-reqd \
   --url 'smtps://smtp.gmail.com:465' \
@@ -98,7 +90,9 @@ emerge net-wireless/iw
 emerge net-wireless/wpa_supplicant
 
 #setup network to login to when starting
-
+cp /etc/conf.d/net /mnt/gentoo/etc/conf.d/net
+mkdir /mnt/gentoo/etc/wpa_supplicant
+cp /etc/wpa_supplicant/wpa_supplicant.conf /mnt/gentoo/erc/wpa_supplicant/wpa_supplicant.conf
 
 echo 'modules_${iface}="wpa_supplicant"' > /etc/conf.d/net
 echo 'wpa_supplicant_${iface}="-Dnl80211,wext"' > /etc/conf.d/net 
@@ -109,10 +103,6 @@ echo 'config_${iface}="dhcp"' > /etc/conf.d/net
 cd /etc/init.d
 ln -s net.lo net.${iface}
 rc-update add net.${iface} default
-mkdir /etc/wpa_supplicant
-
-wpa_passphrase "${ssid}" "${password_sid}" > /etc/wpa_supplicant/wpa_supplicant.conf
-wpa_supplicant -B -i${iface} -c /etc/wpa_supplicant/wpa_supplicant.conf -Dnl80211,wext
 
 #root password set--
 echo "======================================[SYSTEM ROOT PASSWORD]============"
