@@ -61,7 +61,9 @@ echo 'dns_domain_lo=\"cppuxnetwork\"' > /etc/conf.d/net
 #add networking to the install
 emerge --noreplace net-misc/netifrc
 
+echo 'modules="wpa_supplicant"' > /etc/conf.d/net 
 echo 'config_eth0="dhcp"' > /etc/conf.d/net 
+
 
 #setup networking to start at login
 cd /etc/init.d
@@ -72,7 +74,35 @@ emerge app-admin/sysklogd
 rc-update add sysklogd default
 
 emerge net-misc/dhcpcd
-emerge net-wireless/iw net-wireless/wpa_supplicant
+emerge net-wireless/iw 
+emerge net-wireless/wpa_supplicant
+
+ctrl_interface=/var/run/wpa_supplicant
+  
+mkdir /etc/wpa_supplicant
+
+read -p "Enter the default network SSID: " ssid
+read -p "Enter the password for it: " password_ssid
+
+echo '
+# Ensure that only root can read the WPA configuration
+ctrl_interface_group=0
+  
+# Let wpa_supplicant take care of scanning and AP selection
+ap_scan=1
+  
+# Simple case: WPA-PSK, PSK as an ASCII passphrase, allow all valid ciphers
+network={
+  ssid="${ssid}"
+  psk="${ssid_password"
+  # The higher the priority the sooner we are matched
+  priority=5
+}' > /etc/wpa_supplicant/wpa_supplicant.conf
+
+echo 'Not enter the root pass for the system'
+passwd
+
+
 
 echo 'GRUB_PLATFORMS="efi-64"' >> /etc/portage/make.conf
 emerge sys-boot/grub:2
