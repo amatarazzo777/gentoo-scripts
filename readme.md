@@ -43,7 +43,8 @@ wget --no-cache https://raw.githubusercontent.com/amatarazzo777/gentoo-scripts/m
 sh gentoo-1.sh<br>
 reboot<br>
 
-and after rebooting, add your user account using the <br>
+Remove the stick when rebooting. The linux terminal shall arise, login with the root password 
+add your user account using the <br>
 
 
 'useradd -m -G users,wheel,audio -s /bin/bash larry' command.<br>
