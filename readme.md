@@ -36,9 +36,19 @@ blender
 
 
 
-The usage after burning the usb stick of the gentoo boot minimal cd is as follows. Boot from the usb :
+The usage after burning the usb stick of the gentoo boot minimal cd is as follows. Boot from the usb :<br>
 
 net-setup<br>
 wget --no-cache https://raw.githubusercontent.com/amatarazzo777/gentoo-scripts/main/gentoo-1.sh<br>
 sh gentoo-1.sh<br>
+reboot<br>
+
+and after rebooting, add your user account using the <br>
+
+
+'useradd -m -G users,wheel,audio -s /bin/bash larry' command.<br>
+
+
+See also:
+https://menuconfig.org/
 
