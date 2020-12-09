@@ -39,10 +39,12 @@ ls -l /usr/src/linux
 cp kernel_config /usr/src/linux/.config
 cd /usr/src/linux
 
-# make menuconfig
-#the make menuconfig is commented out because the kernel_config file is downloaded from repository
+make menuconfig
+
+#the make menuconfig ishere to allow lasr minute editing befoer building. 
+# the kernel_config file is downloaded from repository
 #that is the settings were previously set with the options I like and saved to the internet
-#or emailed rather using curl.
+#or emailed rather using curl. Make sure you have your wireless drivers selected.
 make
 make modules_install
 make install
