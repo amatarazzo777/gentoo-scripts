@@ -54,9 +54,9 @@ make install
 emerge --ask sys-kernel/linux-firmware
 
 #change the host name
-sed -i 's/HOSTNAME="livecd"/HOSTNAME="lenovo"' /etc/conf.d/hostname
+sed -i 's/HOSTNAME="livecd"/HOSTNAME="lenovo"/g' /etc/conf.d/hostname
 
-echo "dns_domain_lo=\"cppuxnetwork\" > /etc/conf.d/net
+echo 'dns_domain_lo=\"cppuxnetwork\"' > /etc/conf.d/net
 
 #add networking to the install
 emerge --ask --noreplace net-misc/netifrc
