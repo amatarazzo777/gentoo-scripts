@@ -34,7 +34,7 @@ source /etc/profile
 export PS1="(chroot) ${PS1}"
 
 # download the kernel sources and configure
-emerge --ask sys-kernel/gentoo-sources
+emerge sys-kernel/gentoo-sources
 ls -l /usr/src/linux
 cp kernel_config /usr/src/linux/.config
 cd /usr/src/linux
@@ -59,7 +59,7 @@ sed -i 's/HOSTNAME="livecd"/HOSTNAME="lenovo"/g' /etc/conf.d/hostname
 echo 'dns_domain_lo=\"cppuxnetwork\"' > /etc/conf.d/net
 
 #add networking to the install
-emerge --ask --noreplace net-misc/netifrc
+emerge --noreplace net-misc/netifrc
 
 echo 'config_eth0="dhcp"' > /etc/conf.d/net 
 
@@ -68,13 +68,13 @@ cd /etc/init.d
 ln -s net.lo net.wlp2s0
 rc-update add net.wlp2s0 default
 
-emerge --ask app-admin/sysklogd
+emerge app-admin/sysklogd
 rc-update add sysklogd default
 
-emerge --ask net-misc/dhcpcd
-emerge --ask net-wireless/iw net-wireless/wpa_supplicant
+emerge net-misc/dhcpcd
+emerge net-wireless/iw net-wireless/wpa_supplicant
 
 echo 'GRUB_PLATFORMS="efi-64"' >> /etc/portage/make.conf
-emerge --ask sys-boot/grub:2
+emerge sys-boot/grub:2
 grub-install --target=x86_64-efi --efi-directory=/boot
 grub-mkconfig -o /boot/grub/grub.cfg
