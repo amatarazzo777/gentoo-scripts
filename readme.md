@@ -1,6 +1,6 @@
 
 This is a scripts that is used to generate the gentoo with 
-a command line for my liking. The package includes kernel settings and 
+a command line for my liking. There are several mergods of building the kernel. Using menuconfig is nice but ultamitely can render some functions of the computer inoperable. Using genkernel provides a means at which a solid and expanding kernel can be had, in case you update the hardware, The package includes kernel settings and 
 several options for building gentoo and afterwards installation.
 
 WARNING: This script results in erasing the computer entire hard disk. All data lost.
