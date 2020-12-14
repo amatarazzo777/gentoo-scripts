@@ -62,7 +62,7 @@ mount --types tmpfs --options nosuid,nodev,noexec shm /dev/shm
 chmod 1777 /dev/shm
 
 #kick off next part of building and kernel selections
-chroot /mnt/gentoo /bin/bash -c "sh gentoo-1-post-chroot-startup.sh"
+chroot /mnt/gentoo /bin/bash -c "sh gentoo-1-post-chroot-startup_auto_genkernel.sh"
 
 umount -R /mnt/gentoo
 
