@@ -8,8 +8,24 @@ to build one, so the first time to get a great result is
 by using genkernel. 
 
 Using genkernel provides a means at which a solid and expanding 
-kernel can be had, in case you update the hardware, The package includes kernel settings and 
-several options for building gentoo and afterwards installation.
+kernel can be had, in case you update the hardware, The package 
+includes kernel settings and several options for building gentoo 
+and afterwards installation. I had a much easier time getting
+the proper settings with all of my devices by using menuconfig 
+alone. Afterall, every driver is specific for your hardware.
+
+After genkernel has been run once, after the system is running you can
+retrieve the config file used during compilation. The file is inside
+the /proc/.config.gz archive. Using this as a starting point as well
+as listing what modules are loaded by your system is accomplished
+easily. Essentially obe aspect of my research is to produce 
+minimial booting graphic os with specific interfaces. A common
+input format allows the program to be ran in multiple modes,
+booting graphic, booting text ncurses, and inner desktop application
+layers as distinct functional units. Refining the experience of booting
+to a selectable partition graphic os - small loading targets for specific functionality
+and settings. The menu functions as a gui with animation and sound perhaps as an additional
+interest.
 
 The gentoo linux is the system that is used on chrome books and is customizeable. The process
 includes building the entire operating system from source code. Lengthy process, using gcc.
@@ -22,13 +38,18 @@ Now, with gentoo, it is no problem and even faster and better than before. Most 
 and better development expereience from windows. However moving to gentoo from linux is even more satisfying with
 gentoo. You can tell immediately that most of wait time after this is the disk drive.
 You can even boot to terminal under fifty megs or less with network and links browser.
+In the full blown gui gnome desktop environment, web gl games can be played as they are
+much faster now. duo core i3 laptop, lol it is a new laptop now. What end users want and what comes
+on their system can function much better than consumer distributions supply.
 
-Amazing. DARPA also uses it for drones. The scheduling
+ DARPA also uses it for some drones, servers and image processing I 
+believe from my guessings or maybe thats the L4 kernel. The scheduling
 and multithreading is very noticible and distributed while allowing
 effective control realtime. So, quick. Finally.
-
-Here the kernel is build with options that provide framebuff access. 
-
+Here the kernel is build with options that provide framebuff 
+access also which makes such menus and input systems without xserver.
+For arcade boxes and embedded devices, I believe this is a great combination
+from my understanding thus far. Amazing.
 
 # Usage
 
@@ -135,3 +156,19 @@ install of the system. Use dd to place it onto a USB stick.
 See also:
 https://menuconfig.org/
 
+
+## step 6. offline documentation and web indexing
+  Having a knowledge base that is local and searching in a
+  index system such as sphinx is a good choice. A
+  python based webserver is used for this. Search Page and
+  index interface is generated. Thumbnails of documentation, pdf,
+  wikibooks, and other downloaded epub content.
+
+## step 6. clonezilla drive backup
+
+clonezilla is a difficult program to describe but one aspect it 
+provides is the ability to backup drives as an image for archival purposes.
+However, it is an image requireing at most the size of the disk being scanned.
+I plopped my 8gig stick in and expected that it would shovel everything onto it.
+Ir can, but there are multiple and it requires a large capacity USB stick such as TB.
+I am going to try the microsd 1tb for this.
