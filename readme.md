@@ -29,6 +29,11 @@ interest.
 
 The gentoo linux is the system that is used on chrome books and is customizeable. The process
 includes building the entire operating system from source code. Lengthy process, using gcc.
+Just listen to the song "Let the good times roll" by the cars as the commandl ines stream
+perhaps for several days. This entire process as a learning took mr four days with many 
+trial and errors. Be ready for a time where the computer is not being used for several days.
+
+
 The purpose is to increase performance using several methods of system specialization.
 I have noticed a signifigant improvment in stability, running applications are very fast.
 The system stays responsive while many tasks are topping out the system, and can still launch
