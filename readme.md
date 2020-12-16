@@ -125,16 +125,22 @@ connecting git commandline to github
 
 ## step 4. software packages
 
+links
+chrome
+meld
 inkscape
+archive manager
+unzip
+7zip
 audacity
 gimp
 blender
 vim
 geany
-chrome
-archive manager
-unzip
-7zip
+task monitor
+htop
+powertop
+libreoffice
 
 ## step 5. boot fresh stick and system tools
 The ingredients of the software build and other features may differ 
