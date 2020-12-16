@@ -76,71 +76,71 @@ add your user account using the <br>
 The following packages are installed after the base os.
 
 
-gnome desktop environmnt
-  gnome applications
-  pulseaudio
-  bluez
+* gnome desktop environmnt
+  * gnome applications
+  * pulseaudio
+  * bluez
   
-  extensions
-    Add on desktop
-    animation tweaks
-    cpufreq
-    desktop editor
-    desktop icons
-    floating dock
-    gnomestatspro
-    hide top bar
-    sound input and device chooser
-    tweaks in the system menu
+  * extensions
+    * Add on desktop
+    * animation tweaks
+    * cpufreq
+    * desktop editor
+    * desktop icons
+    * floating dock
+    * gnomestatspro
+    * hide top bar
+    * sound input and device chooser
+    * tweaks in the system menu
     
-   configure extensions
-    Places Status indicator
-    removable drive menu
+   * configure extensions
+     * Places Status indicator
+     * removable drive menu
 
 ## step 3. c++ development environment setup
 
-development setup
-  eclipse, 
-    color themes, 
-    meson build plugin, 
-    git, 
-    options for setup, 
+* development setup
+  *eclipse, 
+    *color themes, 
+    *meson build plugin, 
+    *git, 
+    *options for setup, 
     
-compile base
-
-build-essential
-gldrivers
-glfw
-xorg-xcb
-clang
-meson
+*compile base
+  *build-essential
+*gldrivers
+*glut
+*glfw
+*xorg-xcb
+*clang
+*meson
 
 As well, the following components are built
 after setup 
 
-Skia
-depot tools
+*Skia
+*depot tools
 
 connecting git commandline to github
 
 ## step 4. software packages
 
-links
-chrome
-meld
-inkscape
-archive manager
-unzip
-7zip
-audacity
-gimp
-blender
-vim
-geany
-task monitor
-htop
-powertop
-libreoffice
+*links
+*chrome
+*meld
+*inkscape
+*archive manager
+*unzip
+*7zip
+*audacity
+*gimp
+*blender
+*vim
+*geany
+*task monitor
+*htop
+*powertop
+*libreoffice
 
 ## step 5. boot fresh stick and system tools
 The ingredients of the software build and other features may differ 
