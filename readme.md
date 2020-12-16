@@ -170,7 +170,7 @@ https://menuconfig.org/
   index interface is generated. Thumbnails of documentation, pdf,
   wikibooks, and other downloaded epub content.
 
-## step 6. clonezilla drive backup
+## step 7. clonezilla drive backup
 
 clonezilla is a difficult program to describe but one aspect it 
 provides is the ability to backup drives as an image for archival purposes.
@@ -178,3 +178,12 @@ However, it is an image requireing at most the size of the disk being scanned.
 I plopped my 8gig stick in and expected that it would shovel everything onto it.
 Ir can, but there are multiple and it requires a large capacity USB stick such as TB.
 I am going to try the microsd 1tb for this.
+
+Another useful feature is transferring or installing on multiple machines at onces as a 
+administration function. The ability for these processes to be secured and non compromised
+is a modern theme.  Not only by terminal access, user access, and dead terminal boot 
+(luks usage for security).
+
+The distribution build, source code tree security, can be localized free of network transfer
+providing emerge rebuilds.
+
