@@ -14,6 +14,18 @@ several options for building gentoo and afterwards installation.
 The gentoo linux is the system that is used on chrome books and is customizeable. The process
 includes building the entire operating system from source code. Lengthy process, using gcc.
 The purpose is to increase performance using several methods of system specialization.
+I have noticed a signifigant improvment in stability, running applications are very fast.
+The system stays responsive while many tasks are topping out the system, and can still launch
+apps and integrated them into the process stack. So quick compared to ubuntu, and running 
+the desktop environments on them. I used to be turned off by big desktops and stayed to the minimimums.
+Now, with gentoo, it is no problem and even faster and better than before. Most people goto linux to have a faster 
+and better development expereience from windows. However moving to gentoo from linux is even more satisfying with
+gentoo. You can tell immediately that most of wait time after this is the disk drive.
+You can even boot to terminal under fifty megs or less with network and links browser.
+
+Amazing. DARPA also uses it for drones. The scheduling
+and multithreading is very noticible and distributed while allowing
+effective control realtime. So, quick. Finally.
 
 Here the kernel is build with options that provide framebuff access. 
 
@@ -91,8 +103,7 @@ depot tools
 connecting git commandline to github
 
 ## step 4. software packages
-software -- install
--------------------
+
 inkscape
 audacity
 gimp
@@ -104,9 +115,22 @@ archive manager
 unzip
 7zip
 
+## step 5. boot fresh stick and system tools
+The ingredients of the software build and other features may differ 
+sightly as per your thinking cap
+and your needs. However for my understanding, these are the best
+for working with c++ projects from scratch. Yet there are endless
+focuses within the disicpline such as database, communications, 
+algorithm libraries, device interfaces, etc. So after you get the 
+system up to a specification, compiled
+for a specific hardware cpu as the last processes have done, you can make  a nifty
+usb stick as to never undergo the task again and setup with the 
+system base. Other parts of the mounted partitions are not included 
+like user files and data by default.
 
 
-
+The script builds an iso file that can be burned as a bootable
+install of the system. Use dd to place it onto a USB stick.
 
 See also:
 https://menuconfig.org/
