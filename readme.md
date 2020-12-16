@@ -179,11 +179,16 @@ I plopped my 8gig stick in and expected that it would shovel everything onto it.
 Ir can, but there are multiple and it requires a large capacity USB stick such as TB.
 I am going to try the microsd 1tb for this.
 
-Another useful feature is transferring or installing on multiple machines at onces as a 
+Another useful feature is transferring or installing on multiple machines at once as an 
 administration function. The ability for these processes to be secured and non compromised
 is a modern theme.  Not only by terminal access, user access, and dead terminal boot 
 (luks usage for security).
 
 The distribution build, source code tree security, can be localized free of network transfer
 providing emerge rebuilds.
+
+## step 8. emerge use cleansing
+
+An initial learning curve us the emerge portage system and rc-service. Pay close
+attention to the documentation for these functions within the gentoo handbook.
 
