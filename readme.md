@@ -1,6 +1,6 @@
 # Description
 
-This is a script that is used to generate the gentoo with 
+This is a script that is used to generate the Gentoo Linux with 
 a command line for my liking. There are several methods of 
 building the kernel. Using menuconfig is difficult and can 
 render some functions of the computer inoperable. It takes a while 
@@ -55,6 +55,11 @@ Here the kernel is build with options that provide framebuff
 access also which makes such menus and input systems without xserver.
 For arcade boxes and embedded devices, I believe this is a great combination
 from my understanding thus far. Amazing.
+
+As a server process combined with the C++ GUI DOM, and next generation subsequent to that product,
+a system can be tailored to produce multiple types of OS interfaces. A user may
+configure their experience for the device. Phones, tablets, watches and other types of devices.
+
 
 # Usage
 
